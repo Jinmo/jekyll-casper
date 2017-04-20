@@ -6,8 +6,6 @@
 git clone https://github.com/Jinmo/jekyll-casper
 ```
 
-or
-
 ## Running a local server
 
 ```sh
