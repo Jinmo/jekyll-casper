@@ -22,3 +22,9 @@ jekyll serve
 git remote add pages <Your github url>
 git push pages master
 ```
+
+## Updating this theme
+
+```
+git pull origin
+```
