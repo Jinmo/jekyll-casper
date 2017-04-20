@@ -1,0 +1,26 @@
+{%comment%} Previous/next page links - only displayed on page 2+ {%endcomment%}
+<div class="extra-pagination inner">
+    {%include pagination.html %}
+</div>
+
+{%comment%} This is the post loop - each post will be output using this markup {%endcomment%}
+{%for post in paginator.posts %}
+{% assign author = site.authors | where: "slug", post.author | first %}
+<article class="{%if post.post_class%}{{post.post_class}}{%else%}post{%endif%}">
+    <header class="post-header">
+        <h2 class="post-title"><a href="{{post.url}}">{{post.title}}</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>{{post.excerpt | truncatewords:26}} <a class="read-more" href="{{post.url}}">&raquo;</a></p>
+    </section>
+    <footer class="post-meta">
+        {%if author.image%}<img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />{%endif%}
+        {{author.name}}
+        {%if post.tags != empty%} on {{post.tags | join: ', '}}{%endif%}
+        <time class="post-date" datetime="{{post.date | date: "%Y-%m-%d"}}">{{post.date | date:"%d %B %Y"}}</time>
+    </footer>
+</article>
+{%endfor%}
+
+{%comment%} Previous/next page links - displayed on every page {%endcomment%}
+{%include pagination.html %}

@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{%comment%} Filter posts at the top of this page {%endcomment%}
+{% assign posts = site.posts | where: "author", page.slug %}
+{% assign postSize = site.posts | size %}
+
+{%comment%} The tag above means - insert everything in this file into the {body} of the default.hbs template {%endcomment%}
+
+{%comment%} The big featured header {%endcomment%}
+
+{%comment%} Everything inside the #author tags pulls data from the author {%endcomment%}
+    <header class="main-header author-head {%if page.cover%}" style="background-image: url({{page.cover}}){%else%}no-cover{%endif%}">
+        <nav class="main-nav overlay clearfix">
+            {%if site.logo%}<a class="blog-logo" href="{{site.url}}"><img src="{{site.logo}}" alt="{{site.name}}" /></a>{%endif%}
+            {%if site.navigation%}
+                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+            {%endif%}
+        </nav>
+    </header>
+
+    <section class="author-profile inner">
+        {%if page.image%}
+        <figure class="author-image">
+            <div class="img" style="background-image: url({{page.image}})"><span class="hidden">{{page.name}}'s Picture</span></div>
+        </figure>
+        {%endif%}
+        <h1 class="author-title">{{page.name}}</h1>
+        {%if page.bio%}
+            <h2 class="author-bio">{{page.bio}}</h2>
+        {%endif%}
+        <div class="author-meta">
+            {%if page.location%}<span class="author-location icon-location">{{page.location}}</span>{%endif%}
+            {%if page.website%}<span class="author-link icon-link"><a href="{{page.website}}">{{page.website}}</a></span>{%endif%}
+            <span class="author-stats"><i class="icon-stats"></i> {%if posts == empty%}No posts{%elsif postSize == 1%}1 post{%else%}{{postSize}} posts{%endif%}</span>
+        </div>
+    </section>
+
+{%comment%} The main content area on the homepage {%endcomment%}
+<main class="content" role="main">
+
+    {%comment%} The tag below includes the post loop - partials/loop.hbs {%endcomment%}
+    {%comment%}
+        TODO: show articles for an author
+        Paginator seems not supporting filters, and I didn't find a way to do it.
+    {%endcomment%}
+
+</main>

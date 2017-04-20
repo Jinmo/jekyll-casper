@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%comment%} Document Settings {%endcomment%}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {%comment%} Page Meta {%endcomment%}
+    <title>{{site.name}}</title>
+    <meta name="description" content="{{site.meta_description}}" />
+
+    {%comment%} Mobile Meta {%endcomment%}
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {%comment%} Brand icon {%endcomment%}
+    <link rel="shortcut icon" href="{{"assets/favicon.ico" | relative_url }}">
+
+    {%comment%} Styles'n'Scripts {%endcomment%}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link rel="stylesheet" type="text/css" href="{{"assets/css/screen.css" | relative_url}}" />
+
+
+    {%comment%} Ghost outputs important style and meta data with this tag {%endcomment%}
+    {%include head.html%}
+</head>
+<body class="{{layout.body_class}} nav-closed">
+
+    {%comment%} The blog navigation links {%endcomment%}
+    {{navigation}}
+
+    <div class="site-wrapper">
+
+        {%comment%} All the main content gets inserted here, index.hbs, post.hbs, etc {%endcomment%}
+        {{content}}
+
+        {%comment%} The tiny footer at the very bottom {%endcomment%}
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="{{site.url}}">{{site.title}}</a> &copy; {{"now" | date: "%Y"}}</section>
+            <section class="poweredby">Casper theme by <a href="https://ghost.org">Ghost</a>, adopted to Jekyll by <a href="https://github.com/Jinmo/jekyll-casper">Jinmo</a></section>
+        </footer>
+
+    </div>
+
+    {%comment%} jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection {%endcomment%}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    {%comment%} Ghost outputs important scripts and data with this tag {%endcomment%}
+    {%include foot.html%}
+    {%comment%} Fitvids makes video embeds responsive and awesome {%endcomment%}
+    <script type="text/javascript" src="{{"assets/js/jquery.fitvids.js" | relative_url }}"></script>
+    {%comment%} The main JavaScript file for Casper {%endcomment%}
+    <script type="text/javascript" src="{{"assets/js/index.js" | relative_url }}"></script>
+
+</body>
+</html>
