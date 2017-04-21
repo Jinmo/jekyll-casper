@@ -2,7 +2,7 @@
 
 ## First,
 
-[See a demo in GitHub Pages](https://jinmo.github.io)
+[See a demo in GitHub Pages](https://jinmo.github.io/jekyll-casper)
 
 ## Installation
 
