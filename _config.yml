@@ -2,12 +2,12 @@
 # Basic site information.
 # TODO: You can change it to your information.
 
-name: Put your title here
-description: and site description.
-meta_description: Meta description here!
+name: The Daily Awesome
+description: Thoughts, stories, and ideas.
+meta_description: Thoughts, stories, and ideas.
 
 baseurl: null
-url: https://example.com
+url: https://jinmo.github.io/jekyll-casper/
 logo: false
 navigation: true
 paginate: 15
