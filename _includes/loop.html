@@ -4,7 +4,7 @@
 </div>
 
 {%comment%} This is the post loop - each post will be output using this markup {%endcomment%}
-{%for post in paginator.posts %}
+{%for post in include.posts %}
 {% assign author = site.authors | where: "slug", post.author | first %}
 <article class="{%if post.post_class%}{{post.post_class}}{%else%}post{%endif%}">
     <header class="post-header">

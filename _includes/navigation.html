@@ -1,0 +1,18 @@
+<div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        {%for item in include.navigation%}
+            <li class="nav-{{item.slug}}{%if item.go == page.url%} nav-current{%endif%}" role="presentation"><a href="{{item.go | absolute_url}}">{{item.label}}</a></li>
+        {%endfor%}
+    </ul>
+    {%if site.subscribers%}
+        <a class="subscribe-button" href="{{site.url}}/subscribe/">Subscribe</a>
+    {%else%}
+        <a class="subscribe-button icon-feed" href="{{site.url}}/feed.xml">Subscribe</a>
+    {%endif%}
+</div>
+<span class="nav-cover"></span>
+

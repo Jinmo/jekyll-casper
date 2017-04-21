@@ -13,10 +13,16 @@ navigation: true
 paginate: 15
 
 
-# Less important changes below. (Code-highlighting)
+# Less important changes below. (Code-highlighting, markdown)
 
 highlighter: rouge
 markdown: kramdown
+
+
+# Feed!
+
+feed:
+  path: feed.xml
 
 
 # However, pagination is important.
@@ -28,6 +34,7 @@ gems: [jekyll-paginate, rouge]
 
 collections:
   authors: {output: true, permalink: '/authors/:path/'}
+  navigations: {}
 defaults:
 - scope: {path: '', type: authors}
   values: {layout: author}

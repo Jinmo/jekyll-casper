@@ -41,8 +41,10 @@ layout: default
 
     {%comment%} The tag below includes the post loop - partials/loop.hbs {%endcomment%}
     {%comment%}
-        TODO: show articles for an author
+        TODO: show articles with pagination for an author
         Paginator seems not supporting filters, and I didn't find a way to do it.
     {%endcomment%}
+    {%assign posts_for_author=site.posts | where: "author", page.slug %}
+    {%include loop.html posts=posts_for_author%}
 
 </main>
