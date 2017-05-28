@@ -6,8 +6,6 @@ name: The Daily Awesome
 description: Thoughts, stories, and ideas.
 meta_description: Thoughts, stories, and ideas.
 
-baseurl: null
-url: https://jinmo.github.io/jekyll-casper/
 logo: false
 navigation: true
 paginate: 15
@@ -34,7 +32,6 @@ gems: [jekyll-paginate, rouge]
 
 collections:
   authors: {output: true, permalink: '/authors/:path/'}
-  navigations: {}
 defaults:
 - scope: {path: '', type: authors}
   values: {layout: author}

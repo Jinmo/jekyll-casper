@@ -1,0 +1,4 @@
+- page: Home
+  url: /
+- page: Author
+  url: /authors/editme/

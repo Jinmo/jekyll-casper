@@ -41,12 +41,12 @@ body_class: post-template
             {%endif%}
 
             <section class="author">
-                <h4><a href="{{author.url}}">{{author.name}}</a></h4>
+                <h4><a href="{{author.url | relative_url}}">{{author.name}}</a></h4>
 
                 {%if author.bio%}
                     <p>{{author.bio}}</p>
                 {%else%}
-                    <p>Read <a href="{{author.url}}">more posts</a> by this author.</p>
+                    <p>Read <a href="{{author.url | relative_url}}">more posts</a> by this author.</p>
                 {%endif%}
                 <div class="author-meta">
                     {%if site.location%}<span class="author-location icon-location">{{site.location}}</span>{%endif%}

@@ -5,7 +5,7 @@
     </a>
     <ul>
         {%for item in include.navigation%}
-            <li class="nav-{{item.slug}}{%if item.go == page.url%} nav-current{%endif%}" role="presentation"><a href="{{item.go | absolute_url}}">{{item.label}}</a></li>
+            <li class="nav-{{item.slug}}{%if item.url == page.url%} nav-current{%endif%}" role="presentation"><a href="{{item.url | relative_url}}">{{item.page}}</a></li>
         {%endfor%}
     </ul>
     {%if site.subscribers%}
