@@ -6,8 +6,6 @@ name: Put your title here
 description: and site description.
 meta_description: Meta description here!
 
-baseurl: null
-url: https://example.com
 logo: false
 navigation: true
 paginate: 15
