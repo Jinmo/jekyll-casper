@@ -15,7 +15,7 @@
     </section>
     <footer class="post-meta">
         {%if author.image%}<img class="author-thumb" src="{{author.image}}" alt="{{author.name}}" nopin="nopin" />{%endif%}
-        {{author.name}}
+        <a href="{{author.url | relative_url}}">{{author.name}}</a>
         {%if post.tags != empty%} on {{post.tags | join: ', '}}{%endif%}
         <time class="post-date" datetime="{{post.date | date: "%Y-%m-%d"}}">{{post.date | date:"%d %B %Y"}}</time>
     </footer>
