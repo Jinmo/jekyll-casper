@@ -32,7 +32,6 @@ gems: [jekyll-paginate, rouge]
 
 collections:
   authors: {output: true, permalink: '/authors/:path/'}
-  navigations: {}
 defaults:
 - scope: {path: '', type: authors}
   values: {layout: author}
