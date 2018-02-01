@@ -31,12 +31,13 @@ body_class: post-template
         <footer class="post-footer">
 
         {%comment%} Everything inside the #author tags pulls data from the author {%endcomment%}
-        {% assign author = site.authors | where: "slug", page.author | first %}
+        {% assign author_id = "/authors/" | append: page.author %}
+        {% assign author = site.authors | where: "id", author_id | first %}
         {%if author%}
 
             {%if author.image%}
             <figure class="author-image">
-                <a class="img" href="{{author.web}}" style="background-image: url({{author.image}})"><span class="hidden">{{author.name}}'s Picture</span></a>
+                <a class="img" href="{{author.url}}" style="background-image: url({{author.image}})"><span class="hidden">{{author.name}}'s Picture</span></a>
             </figure>
             {%endif%}
 
@@ -49,8 +50,8 @@ body_class: post-template
                     <p>Read <a href="{{author.url | relative_url}}">more posts</a> by this author.</p>
                 {%endif%}
                 <div class="author-meta">
-                    {%if site.location%}<span class="author-location icon-location">{{site.location}}</span>{%endif%}
-                    {%if website%}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{%endif%}
+                    {%if author.location%}<span class="author-location icon-location">{{author.location}}</span>{%endif%}
+                    {%if author.website%}<span class="author-link icon-link"><a href="{{author.website}}">{{website}}</a></span>{%endif%}
                 </div>
             </section>
 
@@ -58,7 +59,7 @@ body_class: post-template
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{title | uri_escape}}&amp;url={{page.url | absolute_url}}"
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{page.title | uri_escape}}&amp;url={{page.url | absolute_url}}"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>

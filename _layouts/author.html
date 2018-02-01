@@ -2,7 +2,9 @@
 layout: default
 ---
 {%comment%} Filter posts at the top of this page {%endcomment%}
-{% assign posts = site.posts | where: "author", page.slug %}
+
+{% assign author_id = page.id | split: "/" | last %}
+{% assign posts = site.posts | where: "author", author_id %}
 {% assign postSize = site.posts | size %}
 
 {%comment%} The tag above means - insert everything in this file into the {body} of the default.hbs template {%endcomment%}
@@ -44,7 +46,6 @@ layout: default
         TODO: show articles with pagination for an author
         Paginator seems not supporting filters, and I didn't find a way to do it.
     {%endcomment%}
-    {%assign posts_for_author=site.posts | where: "author", page.slug %}
-    {%include loop.html posts=posts_for_author%}
+    {%include loop.html posts=posts%}
 
 </main>
