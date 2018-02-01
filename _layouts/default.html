@@ -5,8 +5,27 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    {% assign meta_title=site.name %}
+
+    {% comment %} from meta/title.js {% endcomment %}
+
+    {% if page.collection == "posts" %}
+        {% if page.meta_title %}
+            {% assign page_meta_title=page.meta_title %}
+        {% elsif page.title %}
+            {% assign page_meta_title=page.title %}
+        {% endif %}
+        {% assign meta_title=page_meta_title %}
+
+    {% elsif page.collection == "authors" %}
+        {% assign meta_title = page.name | append: " - " | append: meta_title %}
+
+    {% elsif page.collection == "tags" %}
+        {% assign meta_title = page.name | append: " - " | append: meta_title %}
+    {% endif %}
+
     {%comment%} Page Meta {%endcomment%}
-    <title>{{site.name}}</title>
+    <title>{{meta_title}}</title>
     <meta name="description" content="{{site.meta_description}}" />
 
     {%comment%} Mobile Meta {%endcomment%}
@@ -14,11 +33,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {%comment%} Brand icon {%endcomment%}
-    <link rel="shortcut icon" href="{{"assets/favicon.ico" | relative_url }}">
+    <link rel="shortcut icon" href="{{"/assets/favicon.ico" | relative_url }}">
 
     {%comment%} Styles'n'Scripts {%endcomment%}
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
-    <link rel="stylesheet" type="text/css" href="{{"assets/css/screen.css" | relative_url}}" />
+    <link rel="stylesheet" type="text/css" href="{{"/assets/css/screen.css" | relative_url}}" />
 
 
     {%comment%} Ghost outputs important style and meta data with this tag {%endcomment%}
@@ -47,9 +66,9 @@
     {%comment%} Ghost outputs important scripts and data with this tag {%endcomment%}
     {%include foot.html%}
     {%comment%} Fitvids makes video embeds responsive and awesome {%endcomment%}
-    <script type="text/javascript" src="{{"assets/js/jquery.fitvids.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{"/assets/js/jquery.fitvids.js" | relative_url }}"></script>
     {%comment%} The main JavaScript file for Casper {%endcomment%}
-    <script type="text/javascript" src="{{"assets/js/index.js" | relative_url }}"></script>
+    <script type="text/javascript" src="{{"/assets/js/index.js" | relative_url }}"></script>
 
 </body>
 </html>

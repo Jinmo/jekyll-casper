@@ -5,7 +5,8 @@
 
 {%comment%} This is the post loop - each post will be output using this markup {%endcomment%}
 {%for post in include.posts %}
-{% assign author = site.authors | where: "slug", post.author | first %}
+{% assign author_id = "/authors/" | append: post.author%}
+{% assign author = site.authors | where: "id", author_id | first %}
 <article class="{%if post.post_class%}{{post.post_class}}{%else%}post{%endif%}">
     <header class="post-header">
         <h2 class="post-title"><a href="{{post.url | relative_url}}">{{post.title}}</a></h2>
